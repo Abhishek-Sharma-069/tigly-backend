@@ -22,6 +22,10 @@ export class RoomManger {
             type: "send-offer",
             roomId: roomId.toString()
         })
+        user2?.socket.emit("new-room",{
+            type: "receive-offer",
+            roomId: roomId.toString()
+        })
     }
         onOffer(roomId:String, sdp:String) {
             const user2 = this.rooms.get(roomId.toString())?.user2;
