@@ -51,6 +51,9 @@ export class UserManagers{
         })
         socket.on("answer", ({ roomId, sdp }) => {
             this.roomManger.onAnswer(roomId, sdp);
-        })
+        });
+        socket.on("ice-candidate", ({ roomId, candidate }) => {
+            this.roomManger.onIceCandidate(roomId, candidate, socket.id);
+        });
     }
 }
